@@ -1,9 +1,9 @@
 package designpatterns;
 
-import designpatterns.factorymethod.Car;
-import designpatterns.factorymethod.CarObjectsFactory;
-import designpatterns.factorymethod.CarType;
-import designpatterns.observer.*;
+import designpatterns.iterator.FootballPlayer;
+import designpatterns.iterator.FootballPlayerPosition;
+import designpatterns.iterator.FootballTeam;
+import designpatterns.iterator.Iterator;
 
 public class Main {
 
@@ -40,11 +40,25 @@ public class Main {
 
 //        __________________Fabryka______________________
 
-        CarObjectsFactory carObjectsFactory = new CarObjectsFactory();
-        Car sedan = carObjectsFactory.produceCar(CarType.SEDAN);
-        Car kombi = carObjectsFactory.produceCar(CarType.KOMBI);
-        System.out.println(String.format("opis: %s", sedan.toString()));
-        System.out.println(String.format("opis: %s", kombi.toString()));
+//        CarObjectsFactory carObjectsFactory = new CarObjectsFactory();
+//        Car sedan = carObjectsFactory.produceCar(CarType.SEDAN);
+//        Car kombi = carObjectsFactory.produceCar(CarType.KOMBI);
+//        System.out.println(String.format("opis: %s", sedan.toString()));
+//        System.out.println(String.format("opis: %s", kombi.toString()));
+
+//        __________________Fabryka______________________
+
+        FootballTeam footballTeam = new FootballTeam();
+        FootballPlayer footballPlayer = new FootballPlayer("Krystjano","Rolando",FootballPlayerPosition.ATTACKER);
+        FootballPlayer footballPlayer1 = new FootballPlayer("Camillio","Glik",FootballPlayerPosition.DEFFENDER);
+        footballTeam.addFootballPlayer(footballPlayer);
+        footballTeam.addFootballPlayer(footballPlayer1);
+        Iterator iterator = footballTeam.getIterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+
 
 
 
