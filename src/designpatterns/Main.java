@@ -1,10 +1,8 @@
 package designpatterns;
 
-import designpatterns.chainofresponsibility.*;
-import designpatterns.iterator.FootballPlayer;
-import designpatterns.iterator.FootballPlayerPosition;
-import designpatterns.iterator.FootballTeam;
-import designpatterns.iterator.Iterator;
+import designpatterns.composite.DataStructure;
+import designpatterns.composite.Directory;
+import designpatterns.composite.File;
 
 public class Main {
 
@@ -60,20 +58,37 @@ public class Main {
 
 //        __________________Łańcuch Zobowiązań______________________
 
-        ShopItemPurchaseRequest samsungS7 = new ShopItemPurchaseRequest("Samsung S7",2);
+//        ShopItemPurchaseRequest samsungS7 = new ShopItemPurchaseRequest("Samsung S7",2);
+//
+//        VilligeShop sklepWiejski = new VilligeShop();
+//        TownShop sklepMalomiasteczkowy = new TownShop();
+//        CityShop sklepMiejski = new CityShop();
+//        BigCityShop sklepWielkomiejski = new BigCityShop();
+//
+//        sklepMiejski.addToStock("Samsung S7", 1);
+//        sklepWielkomiejski.addToStock("Samsung S7", 2);
+//
+//        sklepWiejski.setSuccessor(sklepMalomiasteczkowy);
+//        sklepMalomiasteczkowy.setSuccessor(sklepMiejski);
+//        sklepMiejski.setSuccessor(sklepWielkomiejski);
+//        sklepWiejski.processRequest(samsungS7);
+        
+//         __________________Kompozyt______________________
 
-        VilligeShop sklepWiejski = new VilligeShop();
-        TownShop sklepMalomiasteczkowy = new TownShop();
-        CityShop sklepMiejski = new CityShop();
-        BigCityShop sklepWielkomiejski = new BigCityShop();
-
-        sklepMiejski.addToStock("Samsung S7", 1);
-        sklepWielkomiejski.addToStock("Samsung S7", 2);
-
-        sklepWiejski.setSuccessor(sklepMalomiasteczkowy);
-        sklepMalomiasteczkowy.setSuccessor(sklepMiejski);
-        sklepMiejski.setSuccessor(sklepWielkomiejski);
-        sklepWiejski.processRequest(samsungS7);
+        DataStructure programFiles = new Directory("Program Files");
+        DataStructure file = new File("batman.mp4");
+        DataStructure music = new Directory("Music");
+        DataStructure track1 = new File("track1.mp3");
+        DataStructure track2 = new File("track2.mp3");
+        DataStructure rockMusic = new Directory("Rock");
+        DataStructure rockTrack = new File("rockTrack.mp3");
+        rockMusic.addChild(rockTrack);
+        music.addChild(rockMusic);
+        music.addChild(track1);
+        music.addChild(track2);
+        programFiles.addChild(file);
+        programFiles.addChild(music);
+        programFiles.browse();
 
 
 
