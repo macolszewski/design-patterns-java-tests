@@ -50,6 +50,8 @@ public abstract class StockAvaibility {
             System.out.println("Sprawdzam w: "+ successor.getRole());
             System.out.println();
             successor.processRequest(request);
+        } else {
+            System.out.println(this.getRole() + " nie posiada " + request.getItem());
         }
     }
 }

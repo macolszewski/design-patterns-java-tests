@@ -68,7 +68,7 @@ public class Main {
         BigCityShop sklepWielkomiejski = new BigCityShop();
 
         sklepMiejski.addToStock("Samsung S7", 1);
-        sklepWielkomiejski.addToStock("Samsung S7", 2);
+        sklepWielkomiejski.addToStock("Samsung S7", 1);
 
         sklepWiejski.setSuccessor(sklepMalomiasteczkowy);
         sklepMalomiasteczkowy.setSuccessor(sklepMiejski);
