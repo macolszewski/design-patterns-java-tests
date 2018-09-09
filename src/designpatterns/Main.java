@@ -1,5 +1,9 @@
 package designpatterns;
 
+import designpatterns.chainofresponsibility.CityShop;
+import designpatterns.chainofresponsibility.ShopItemPurchaseRequest;
+import designpatterns.chainofresponsibility.TownShop;
+import designpatterns.chainofresponsibility.VilligeShop;
 import designpatterns.iterator.FootballPlayer;
 import designpatterns.iterator.FootballPlayerPosition;
 import designpatterns.iterator.FootballTeam;
@@ -16,7 +20,6 @@ public class Main {
 //        cebulowo_mielonkowa.makePizza();
 //        cebulowo_mielonkowa.showComponents();
 //        cebulowo_mielonkowa.bakePizza();
-
 
 //        __________________Prototyp______________________
 
@@ -46,17 +49,34 @@ public class Main {
 //        System.out.println(String.format("opis: %s", sedan.toString()));
 //        System.out.println(String.format("opis: %s", kombi.toString()));
 
-//        __________________Fabryka______________________
+//        __________________Iterator______________________
 
-        FootballTeam footballTeam = new FootballTeam();
-        FootballPlayer footballPlayer = new FootballPlayer("Krystjano","Rolando",FootballPlayerPosition.ATTACKER);
-        FootballPlayer footballPlayer1 = new FootballPlayer("Camillio","Glik",FootballPlayerPosition.DEFFENDER);
-        footballTeam.addFootballPlayer(footballPlayer);
-        footballTeam.addFootballPlayer(footballPlayer1);
-        Iterator iterator = footballTeam.getIterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
+//        FootballTeam footballTeam = new FootballTeam();
+//        FootballPlayer footballPlayer = new FootballPlayer("Krystjano","Rolando",FootballPlayerPosition.ATTACKER);
+//        FootballPlayer footballPlayer1 = new FootballPlayer("Camillio","Glik",FootballPlayerPosition.DEFFENDER);
+//        footballTeam.addFootballPlayer(footballPlayer);
+//        footballTeam.addFootballPlayer(footballPlayer1);
+//        Iterator iterator = footballTeam.getIterator();
+//        while (iterator.hasNext()) {
+//            System.out.println(iterator.next());
+//        }
+
+//        __________________Łańcuch Zobowiązań______________________
+
+        ShopItemPurchaseRequest samsungS7 = new ShopItemPurchaseRequest("Samsung S7",1);
+
+        VilligeShop sklepWiejski = new VilligeShop();
+        TownShop sklepMalomiasteczkowy = new TownShop();
+        CityShop sklepMiejski = new CityShop();
+
+        sklepMiejski.addToStock("Samsung S7", 1);
+        sklepMalomiasteczkowy.addToStock("Samsung S7", 1);
+
+        sklepWiejski.setSuccessor(sklepMalomiasteczkowy);
+        sklepMalomiasteczkowy.setSuccessor(sklepMiejski);
+        sklepWiejski.processRequest(samsungS7);
+
+
 
 
 
