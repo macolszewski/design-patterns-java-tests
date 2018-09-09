@@ -10,7 +10,7 @@ public abstract class StockAvaibility {
 
     public boolean getAllowable(String item, Integer amout) {
         if (getStock().containsKey(item)) {
-            if (getStock().get(item) > 0) {
+            if (getStock().get(item) >= amout) {
                 return true;
             } else {
                 return false;
@@ -46,6 +46,9 @@ public abstract class StockAvaibility {
         if (this.getAllowable(request.getItem(), request.getAmount())) {
             System.out.println(this.getRole() + " posiada " + request.getItem());
         } else if (successor != null) {
+            System.out.println(this.getRole() + " nie posiada " + request.getItem());
+            System.out.println("Sprawdzam w: "+ successor.getRole());
+            System.out.println();
             successor.processRequest(request);
         }
     }

@@ -1,9 +1,6 @@
 package designpatterns;
 
-import designpatterns.chainofresponsibility.CityShop;
-import designpatterns.chainofresponsibility.ShopItemPurchaseRequest;
-import designpatterns.chainofresponsibility.TownShop;
-import designpatterns.chainofresponsibility.VilligeShop;
+import designpatterns.chainofresponsibility.*;
 import designpatterns.iterator.FootballPlayer;
 import designpatterns.iterator.FootballPlayerPosition;
 import designpatterns.iterator.FootballTeam;
@@ -63,17 +60,19 @@ public class Main {
 
 //        __________________Łańcuch Zobowiązań______________________
 
-        ShopItemPurchaseRequest samsungS7 = new ShopItemPurchaseRequest("Samsung S7",1);
+        ShopItemPurchaseRequest samsungS7 = new ShopItemPurchaseRequest("Samsung S7",2);
 
         VilligeShop sklepWiejski = new VilligeShop();
         TownShop sklepMalomiasteczkowy = new TownShop();
         CityShop sklepMiejski = new CityShop();
+        BigCityShop sklepWielkomiejski = new BigCityShop();
 
         sklepMiejski.addToStock("Samsung S7", 1);
-        sklepMalomiasteczkowy.addToStock("Samsung S7", 1);
+        sklepWielkomiejski.addToStock("Samsung S7", 2);
 
         sklepWiejski.setSuccessor(sklepMalomiasteczkowy);
         sklepMalomiasteczkowy.setSuccessor(sklepMiejski);
+        sklepMiejski.setSuccessor(sklepWielkomiejski);
         sklepWiejski.processRequest(samsungS7);
 
 
