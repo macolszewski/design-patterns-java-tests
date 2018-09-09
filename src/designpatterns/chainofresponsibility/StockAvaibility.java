@@ -44,10 +44,10 @@ public abstract class StockAvaibility {
 
     public void processRequest(ShopItemPurchaseRequest request) {
         if (this.getAllowable(request.getItem(), request.getAmount())) {
-            System.out.println(this.getRole() + " posiada " + request.getItem());
+            System.out.println(this.getRole() + " posiada " + request.getAmount() + "szt " + request.getItem());
         } else if (successor != null) {
-            System.out.println(this.getRole() + " nie posiada " + request.getItem());
-            System.out.println("Sprawdzam w: "+ successor.getRole());
+            System.out.println(this.getRole() + " nie posiada " + request.getAmount() + "szt " + request.getItem());
+            System.out.println("Sprawdzam w: " + successor.getRole());
             System.out.println();
             successor.processRequest(request);
         } else {
