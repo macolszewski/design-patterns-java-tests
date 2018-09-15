@@ -1,5 +1,9 @@
 package designpatterns;
 
+import designpatterns.bridge.ChinaPlayer;
+import designpatterns.bridge.ExoPlayer;
+import designpatterns.bridge.HBOVod;
+import designpatterns.bridge.MediaPlayer;
 import designpatterns.composite.DataStructure;
 import designpatterns.composite.Directory;
 import designpatterns.composite.File;
@@ -75,27 +79,33 @@ public class Main {
         
 //         __________________Kompozyt______________________
 
-        DataStructure programFiles = new Directory("Program Files");
-        DataStructure file = new File("batman.mp4");
-        DataStructure music = new Directory("Music");
-        DataStructure track1 = new File("track1.mp3");
-        DataStructure track2 = new File("track2.mp3");
-        DataStructure rockMusic = new Directory("Rock");
-        DataStructure rockTrack = new File("rockTrack.mp3");
-        rockMusic.addChild(rockTrack);
-        music.addChild(rockMusic);
-        music.addChild(track1);
-        music.addChild(track2);
-        programFiles.addChild(file);
-        programFiles.addChild(music);
-        programFiles.browse();
+//        DataStructure programFiles = new Directory("Program Files");
+//        DataStructure file = new File("batman.mp4");
+//        DataStructure music = new Directory("Music");
+//        DataStructure track1 = new File("track1.mp3");
+//        DataStructure track2 = new File("track2.mp3");
+//        DataStructure rockMusic = new Directory("Rock");
+//        DataStructure rockTrack = new File("rockTrack.mp3");
+//        rockMusic.addChild(rockTrack);
+//        music.addChild(rockMusic);
+//        music.addChild(track1);
+//        music.addChild(track2);
+//        programFiles.addChild(file);
+//        programFiles.addChild(music);
+//        programFiles.browse();
 
+//         __________________Most______________________
 
-
-
-
-
-
+        HBOVod<MediaPlayer> hboVod = new HBOVod<>(new ExoPlayer());
+        HBOVod<MediaPlayer> hboVodChina = new HBOVod<>(new ChinaPlayer());
+        hboVod.addFile(new designpatterns.bridge.File("123.mp3"));
+        hboVod.addFile(new designpatterns.bridge.File("drugi.mp3"));
+        hboVod.addFile(new designpatterns.bridge.File("osiem.mp3"));
+        hboVodChina.addFile(new designpatterns.bridge.File("stefan.mp3"));
+        hboVodChina.startPlaying();
+        hboVodChina.stopPlaying();
+        hboVod.startPlaying();
+        hboVod.stopPlaying();
 
     }
 }
