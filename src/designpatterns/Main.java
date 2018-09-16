@@ -7,6 +7,10 @@ import designpatterns.bridge.MediaPlayer;
 import designpatterns.composite.DataStructure;
 import designpatterns.composite.Directory;
 import designpatterns.composite.File;
+import designpatterns.mediator.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -96,16 +100,34 @@ public class Main {
 
 //         __________________Most______________________
 
-        HBOVod<MediaPlayer> hboVod = new HBOVod<>(new ExoPlayer());
-        HBOVod<MediaPlayer> hboVodChina = new HBOVod<>(new ChinaPlayer());
-        hboVod.addFile(new designpatterns.bridge.File("123.mp3"));
-        hboVod.addFile(new designpatterns.bridge.File("drugi.mp3"));
-        hboVod.addFile(new designpatterns.bridge.File("osiem.mp3"));
-        hboVodChina.addFile(new designpatterns.bridge.File("stefan.mp3"));
-        hboVodChina.startPlaying();
-        hboVodChina.stopPlaying();
-        hboVod.startPlaying();
-        hboVod.stopPlaying();
+//        HBOVod<MediaPlayer> hboVod = new HBOVod<>(new ExoPlayer());
+//        HBOVod<MediaPlayer> hboVodChina = new HBOVod<>(new ChinaPlayer());
+//        hboVod.addFile(new designpatterns.bridge.File("123.mp3"));
+//        hboVod.addFile(new designpatterns.bridge.File("drugi.mp3"));
+//        hboVod.addFile(new designpatterns.bridge.File("osiem.mp3"));
+//        hboVodChina.addFile(new designpatterns.bridge.File("stefan.mp3"));
+//        hboVodChina.startPlaying();
+//        hboVodChina.stopPlaying();
+//        hboVod.startPlaying();
+//        hboVod.stopPlaying();
+
+//         __________________Mediator______________________
+
+        Dispatcher taxiDispatcher = new TaxiDispatcher();
+        Driver taxi = new TaxiDriver(taxiDispatcher, DriverStatus.DURING_ORDER);
+        Driver taxi1 = new TaxiDriver(taxiDispatcher, DriverStatus.DURING_ORDER);
+        Driver taxi2 = new TaxiDriver(taxiDispatcher, DriverStatus.DURING_ORDER);
+        Driver taxi3 = new TaxiDriver(taxiDispatcher);
+
+        taxiDispatcher.addDriver(taxi);
+        taxiDispatcher.addDriver(taxi1);
+        taxiDispatcher.addDriver(taxi2);
+        taxiDispatcher.addDriver(taxi3);
+
+        taxiDispatcher.takeOrder("Na odzieżową 6");
+        taxiDispatcher.takeOrder("Na odzieżową 5");
+
+
 
     }
 }
