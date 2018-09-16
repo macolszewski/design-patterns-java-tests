@@ -126,6 +126,8 @@ public class Main {
 
         taxiDispatcher.takeOrder("Na odzieżową 6");
         taxiDispatcher.takeOrder("Na odzieżową 5");
+        taxi3.stopOrder();
+        taxiDispatcher.takeOrder("Na odzieżową 5");
 
 
 

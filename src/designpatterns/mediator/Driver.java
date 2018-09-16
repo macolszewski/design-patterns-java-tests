@@ -10,7 +10,7 @@ public abstract class Driver {
 
     public abstract void startOrder(String order);
 
-    public abstract void stopOrder(String order);
+    public abstract void stopOrder();
 
     public DriverStatus getDriverStatus() {
         return driverStatus;

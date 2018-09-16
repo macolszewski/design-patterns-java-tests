@@ -40,7 +40,7 @@ public class TaxiDispatcher implements Dispatcher {
 
     @Override
     public void updateDriverStatus(Driver driver) {
-        System.out.println("Update driver status: " + driver);
+        System.out.println("Update driver status: " + driver.toString());
 
     }
 }

@@ -20,9 +20,17 @@ public class TaxiDriver extends Driver {
     }
 
     @Override
-    public void stopOrder(String order) {
+    public void stopOrder() {
         driverStatus = DriverStatus.WAITING_FOR_ORDER;
         dispatcher.updateDriverStatus(this);
 
+    }
+
+    @Override
+    public String
+    toString() {
+        return "TaxiDriver{" +
+                "driverStatus=" + driverStatus +
+                "} ";
     }
 }
