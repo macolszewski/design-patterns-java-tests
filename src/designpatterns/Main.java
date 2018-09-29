@@ -1,16 +1,7 @@
 package designpatterns;
 
-import designpatterns.bridge.ChinaPlayer;
-import designpatterns.bridge.ExoPlayer;
-import designpatterns.bridge.HBOVod;
-import designpatterns.bridge.MediaPlayer;
-import designpatterns.composite.DataStructure;
-import designpatterns.composite.Directory;
-import designpatterns.composite.File;
-import designpatterns.mediator.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import designpatterns.builder.Computer;
+import designpatterns.builder.NotebookComputerBuilder;
 
 public class Main {
 
@@ -113,23 +104,48 @@ public class Main {
 
 //         __________________Mediator______________________
 
-        Dispatcher taxiDispatcher = new TaxiDispatcher();
-        Driver taxi = new TaxiDriver(taxiDispatcher, DriverStatus.DURING_ORDER);
-        Driver taxi1 = new TaxiDriver(taxiDispatcher, DriverStatus.DURING_ORDER);
-        Driver taxi2 = new TaxiDriver(taxiDispatcher, DriverStatus.DURING_ORDER);
-        Driver taxi3 = new TaxiDriver(taxiDispatcher);
+//        Dispatcher taxiDispatcher = new TaxiDispatcher();
+//        Driver taxi = new TaxiDriver(taxiDispatcher, DriverStatus.DURING_ORDER);
+//        Driver taxi1 = new TaxiDriver(taxiDispatcher, DriverStatus.DURING_ORDER);
+//        Driver taxi2 = new TaxiDriver(taxiDispatcher, DriverStatus.DURING_ORDER);
+//        Driver taxi3 = new TaxiDriver(taxiDispatcher);
+//
+//        taxiDispatcher.addDriver(taxi);
+//        taxiDispatcher.addDriver(taxi1);
+//        taxiDispatcher.addDriver(taxi2);
+//        taxiDispatcher.addDriver(taxi3);
+//
+//        taxiDispatcher.takeOrder("Na odzieżową 6");
+//        taxiDispatcher.takeOrder("Na odzieżową 5");
+//        taxi3.stopOrder();
+//        taxiDispatcher.takeOrder("Na odzieżową 5");
 
-        taxiDispatcher.addDriver(taxi);
-        taxiDispatcher.addDriver(taxi1);
-        taxiDispatcher.addDriver(taxi2);
-        taxiDispatcher.addDriver(taxi3);
-
-        taxiDispatcher.takeOrder("Na odzieżową 6");
-        taxiDispatcher.takeOrder("Na odzieżową 5");
-        taxi3.stopOrder();
-        taxiDispatcher.takeOrder("Na odzieżową 5");
+//         __________________Budowniczy______________________
 
 
+        Computer notebook = new NotebookComputerBuilder()
+                .setComputerName("Predator")
+                .setComputerRam("8GB")
+                .setComputerCpu("Intel i7 8 gen")
+                .setComputerGpu("Nvidia GeForce 1080")
+                .setComputerKeyboard("QWERTY + Numeric")
+                .setComputerMonitor("17'")
+                .setComputerAc("120W")
+                .build();
+
+        Computer desktop = new NotebookComputerBuilder()
+                .setComputerName("Szafa")
+                .setComputerRam("32GB")
+                .setComputerCpu("2x Intel i7 8 gen")
+                .setComputerGpu("4x Nvidia GeForce 1080")
+                .setComputerKeyboard("QWERTY + Numeric")
+                .setComputerMonitor("32'")
+                .setComputerAc("940W")
+                .build();
+
+
+        System.out.println(desktop.toString());
+        System.out.println(notebook.toString());
 
     }
 }
