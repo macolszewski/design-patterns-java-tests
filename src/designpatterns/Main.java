@@ -1,8 +1,7 @@
 package designpatterns;
 
-import designpatterns.builder.Computer;
-import designpatterns.builder.NotebookComputerBuilder;
-import designpatterns.builder.DesktopComputerBuilder;
+import designpatterns.templatemethod.BasicComputerSetup;
+import designpatterns.templatemethod.DeveloperComputerSetup;
 
 public class Main {
 
@@ -124,26 +123,40 @@ public class Main {
 //         __________________Budowniczy______________________
 
 
-        Computer notebook = new NotebookComputerBuilder()
-                .setComputerName("Predator")
-                .setComputerRam("8GB")
-                .setComputerCpu("Intel i7 8 gen")
-                .setComputerGpu("Nvidia GeForce 1080")
-                .build();
+//        Computer notebook = new NotebookComputerBuilder()
+//                .setComputerName("Predator")
+//                .setComputerRam("8GB")
+//                .setComputerCpu("Intel i7 8 gen")
+//                .setComputerGpu("Nvidia GeForce 1080")
+//                .build();
+//
+//        Computer desktop = new DesktopComputerBuilder()
+//                .setComputerName("Szafa")
+//                .setComputerRam("32GB")
+//                .setComputerCpu("2x Intel i7 8 gen")
+//                .setComputerGpu("4x Nvidia GeForce 1080")
+//                .setComputerKeyboard("DVORAK")
+//                .setComputerMonitor("32\" curved")
+//                .setComputerCover("Tower")
+//                .build();
+//
+//
+//        System.out.println(desktop.toString());
+//        System.out.println(notebook.toString());
 
-        Computer desktop = new DesktopComputerBuilder()
-                .setComputerName("Szafa")
-                .setComputerRam("32GB")
-                .setComputerCpu("2x Intel i7 8 gen")
-                .setComputerGpu("4x Nvidia GeForce 1080")
-                .setComputerKeyboard("QWERTY + Numeric")
-                .setComputerMonitor("32'")
-                .setComputerCover("Tower")
-                .build();
+//         __________________Metoda szablonowa______________________
 
 
-        System.out.println(desktop.toString());
-        System.out.println(notebook.toString());
+        DeveloperComputerSetup developerComputerSetup = new DeveloperComputerSetup();
+        BasicComputerSetup basicComputerSetup = new BasicComputerSetup();
+
+        System.out.println("Developer computer:");
+        developerComputerSetup.setup();
+        System.out.println();
+        System.out.println("Basic computer:");
+        basicComputerSetup.setup();
+
+
 
     }
 }
