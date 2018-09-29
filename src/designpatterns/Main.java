@@ -2,6 +2,7 @@ package designpatterns;
 
 import designpatterns.builder.Computer;
 import designpatterns.builder.NotebookComputerBuilder;
+import designpatterns.builder.DesktopComputerBuilder;
 
 public class Main {
 
@@ -128,19 +129,16 @@ public class Main {
                 .setComputerRam("8GB")
                 .setComputerCpu("Intel i7 8 gen")
                 .setComputerGpu("Nvidia GeForce 1080")
-                .setComputerKeyboard("QWERTY + Numeric")
-                .setComputerMonitor("17'")
-                .setComputerAc("120W")
                 .build();
 
-        Computer desktop = new NotebookComputerBuilder()
+        Computer desktop = new DesktopComputerBuilder()
                 .setComputerName("Szafa")
                 .setComputerRam("32GB")
                 .setComputerCpu("2x Intel i7 8 gen")
                 .setComputerGpu("4x Nvidia GeForce 1080")
                 .setComputerKeyboard("QWERTY + Numeric")
                 .setComputerMonitor("32'")
-                .setComputerAc("940W")
+                .setComputerCover("Tower")
                 .build();
 
 

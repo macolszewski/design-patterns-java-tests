@@ -8,6 +8,12 @@ public abstract class ComputerBuilder {
     protected String computerCpu;
     protected String computerGpu;
     protected String computerKeyboard;
+    protected String computerCover;
+
+    public ComputerBuilder setComputerCover(String computerCover) {
+        this.computerCover = computerCover;
+        return this;
+    }
 
     public ComputerBuilder setComputerMonitor(String computerMonitor) {
         this.computerMonitor = computerMonitor;

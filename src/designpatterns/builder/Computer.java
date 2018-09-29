@@ -2,6 +2,7 @@ package designpatterns.builder;
 
 public class Computer {
     private ComputerType computerType;
+    private HarddriveType harddriveType;
     private String name;
     private String monitor;
     private String ram;
@@ -9,9 +10,11 @@ public class Computer {
     private String cpu;
     private String gpu;
     private String ac;
+    private String cover;
 
-    public Computer(ComputerType computerType, String name, String monitor, String ram, String klawiatura, String cpu, String gpu, String ac) {
+    public Computer(ComputerType computerType, HarddriveType harddriveType, String name, String monitor, String ram, String klawiatura, String cpu, String gpu, String ac, String cover) {
         this.computerType = computerType;
+        this.harddriveType = harddriveType;
         this.name = name;
         this.monitor = monitor;
         this.ram = ram;
@@ -19,6 +22,7 @@ public class Computer {
         this.cpu = cpu;
         this.gpu = gpu;
         this.ac = ac;
+        this.cover = cover;
     }
 
     public ComputerType getComputerType() {
@@ -27,6 +31,14 @@ public class Computer {
 
     public void setComputerType(ComputerType computerType) {
         this.computerType = computerType;
+    }
+
+    public HarddriveType getHarddriveType() {
+        return harddriveType;
+    }
+
+    public void setHarddriveType(HarddriveType harddriveType) {
+        this.harddriveType = harddriveType;
     }
 
     public String getName() {
@@ -85,10 +97,19 @@ public class Computer {
         this.ac = ac;
     }
 
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
     @Override
     public String toString() {
         return "Computer{" +
                 "computerType=" + computerType +
+                ", harddriveType=" + harddriveType +
                 ", name='" + name + '\'' +
                 ", monitor='" + monitor + '\'' +
                 ", ram='" + ram + '\'' +
@@ -96,6 +117,7 @@ public class Computer {
                 ", cpu='" + cpu + '\'' +
                 ", gpu='" + gpu + '\'' +
                 ", ac='" + ac + '\'' +
+                ", cover='" + cover + '\'' +
                 '}';
     }
 }
