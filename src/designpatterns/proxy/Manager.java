@@ -9,12 +9,11 @@ public class Manager implements Employee {
             @Override
             public void run() {
                 int i = 0;
-                String kropa = ".";
                 while (true) {
                     if (i < 8) {
                         try {
                             Thread.sleep(500);
-                            System.out.print(kropa);
+                            System.out.print(".");
                             i++;
                         } catch (InterruptedException e) {
                             return;
@@ -33,7 +32,8 @@ public class Manager implements Employee {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Generuję raport dla Managera!");
+        System.out.println("Wyświetlam raport dla Managera!");
+        System.out.println("160h");
         System.out.println();
     }
 
