@@ -1,5 +1,9 @@
 package designpatterns;
 
+import designpatterns.proxy.Developer;
+import designpatterns.proxy.Employee;
+import designpatterns.proxy.Manager;
+import designpatterns.proxy.ProxyEmlopyee;
 import designpatterns.templatemethod.BasicComputerSetup;
 import designpatterns.templatemethod.DeveloperComputerSetup;
 
@@ -147,14 +151,23 @@ public class Main {
 //         __________________Metoda szablonowa______________________
 
 
-        DeveloperComputerSetup developerComputerSetup = new DeveloperComputerSetup();
-        BasicComputerSetup basicComputerSetup = new BasicComputerSetup();
+//        DeveloperComputerSetup developerComputerSetup = new DeveloperComputerSetup();
+//        BasicComputerSetup basicComputerSetup = new BasicComputerSetup();
+//
+//        System.out.println("Developer computer:");
+//        developerComputerSetup.setup();
+//        System.out.println();
+//        System.out.println("Basic computer:");
+//        basicComputerSetup.setup();
 
-        System.out.println("Developer computer:");
-        developerComputerSetup.setup();
-        System.out.println();
-        System.out.println("Basic computer:");
-        basicComputerSetup.setup();
+
+//         __________________Pełnomocnik______________________
+
+        Employee manager = new ProxyEmlopyee(new Manager());
+        Employee developer = new ProxyEmlopyee(new Developer());
+
+        manager.generateTimeReport();
+        developer.generateTimeReport();
 
 
 
