@@ -12,7 +12,12 @@ public class ProxyEmlopyee implements Employee {
         if (employee.hasPermisson()) {
             employee.generateTimeReport();
         } else {
-            System.out.println("Funkcja: "+employee.toString()+"\t BRAK DOSTĘPU");
+            try {
+                throw new NoPermissionException("Function: "+employee.toString()+" ACCESS DENIED");
+            } catch (NoPermissionException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 

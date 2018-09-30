@@ -10,9 +10,9 @@ public class Manager implements Employee {
             public void run() {
                 int i = 0;
                 while (true) {
-                    if (i < 8) {
+                    if (i < 16) {
                         try {
-                            Thread.sleep(500);
+                            Thread.sleep(250);
                             System.out.print(".");
                             i++;
                         } catch (InterruptedException e) {
@@ -34,7 +34,6 @@ public class Manager implements Employee {
         }
         System.out.println("Wyświetlam raport dla Managera!");
         System.out.println("160h");
-        System.out.println();
     }
 
 

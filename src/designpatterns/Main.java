@@ -167,6 +167,7 @@ public class Main {
         Employee developer = new ProxyEmlopyee(new Developer());
 
         manager.generateTimeReport();
+        System.out.println();
         developer.generateTimeReport();
 
 
