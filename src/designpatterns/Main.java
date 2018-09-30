@@ -166,8 +166,11 @@ public class Main {
         Employee manager = new ProxyEmlopyee(new Manager());
         Employee developer = new ProxyEmlopyee(new Developer());
 
+
+        System.out.println("RAPORT DLA MANAGER:");
         manager.generateTimeReport();
         System.out.println();
+        System.out.println("RAPORT DLA DEVELOPER:");
         developer.generateTimeReport();
 
 
