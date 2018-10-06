@@ -1,5 +1,8 @@
 package designpatterns;
 
+import designpatterns.abstractfactory.LinuxGuiFactory;
+import designpatterns.abstractfactory.OperationSystem;
+import designpatterns.abstractfactory.WindowsGuiFactory;
 import designpatterns.proxy.Developer;
 import designpatterns.proxy.Employee;
 import designpatterns.proxy.Manager;
@@ -163,16 +166,24 @@ public class Main {
 
 //         __________________Pełnomocnik______________________
 
-        Employee manager = new ProxyEmlopyee(new Manager());
-        Employee developer = new ProxyEmlopyee(new Developer());
+//        Employee manager = new ProxyEmlopyee(new Manager());
+//        Employee developer = new ProxyEmlopyee(new Developer());
+//
+//
+//        System.out.println("RAPORT DLA MANAGER:");
+//        manager.generateTimeReport();
+//        System.out.println();
+//        System.out.println("RAPORT DLA DEVELOPER:");
+//        developer.generateTimeReport();
+
+//        ___________________Fabryka Abstrakcyjna______________
 
 
-        System.out.println("RAPORT DLA MANAGER:");
-        manager.generateTimeReport();
-        System.out.println();
-        System.out.println("RAPORT DLA DEVELOPER:");
-        developer.generateTimeReport();
+        OperationSystem operationSystem = new OperationSystem(new WindowsGuiFactory());
+        operationSystem.showOperationSystemGui();
 
+        OperationSystem linux = new OperationSystem(new LinuxGuiFactory());
+        linux.showOperationSystemGui();
 
 
     }
