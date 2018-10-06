@@ -3,6 +3,9 @@ package designpatterns;
 import designpatterns.abstractfactory.LinuxGuiFactory;
 import designpatterns.abstractfactory.OperationSystem;
 import designpatterns.abstractfactory.WindowsGuiFactory;
+import designpatterns.abstractfactory.excercise.AppleFactory;
+import designpatterns.abstractfactory.excercise.GoogleFactory;
+import designpatterns.abstractfactory.excercise.Shop;
 import designpatterns.proxy.Developer;
 import designpatterns.proxy.Employee;
 import designpatterns.proxy.Manager;
@@ -179,11 +182,21 @@ public class Main {
 //        ___________________Fabryka Abstrakcyjna______________
 
 
-        OperationSystem operationSystem = new OperationSystem(new WindowsGuiFactory());
-        operationSystem.showOperationSystemGui();
+//        OperationSystem operationSystem = new OperationSystem(new WindowsGuiFactory());
+//        operationSystem.showOperationSystemGui();
+//
+//        OperationSystem linux = new OperationSystem(new LinuxGuiFactory());
+//        linux.showOperationSystemGui();
 
-        OperationSystem linux = new OperationSystem(new LinuxGuiFactory());
-        linux.showOperationSystemGui();
+
+//        EXCERCISE:
+
+        Shop googleShop = new Shop(new GoogleFactory());
+        Shop appleShop = new Shop(new AppleFactory());
+
+        googleShop.showProducts();
+        appleShop.showProducts();
+
 
 
     }
