@@ -17,6 +17,6 @@ public class AppleFactory implements SmartDeviceFactory {
 
     @Override
     public String toString() {
-        return "AppleFactory";
+        return "AppleFactory:";
     }
 }
