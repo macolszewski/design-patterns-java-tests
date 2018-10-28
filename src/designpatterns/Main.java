@@ -6,6 +6,7 @@ import designpatterns.abstractfactory.WindowsGuiFactory;
 import designpatterns.abstractfactory.excercise.AppleFactory;
 import designpatterns.abstractfactory.excercise.GoogleFactory;
 import designpatterns.abstractfactory.excercise.Shop;
+import designpatterns.facade.*;
 import designpatterns.proxy.Developer;
 import designpatterns.proxy.Employee;
 import designpatterns.proxy.Manager;
@@ -191,13 +192,24 @@ public class Main {
 
 //        EXCERCISE:
 
-        Shop googleShop = new Shop(new GoogleFactory());
-        Shop appleShop = new Shop(new AppleFactory());
+//        Shop googleShop = new Shop(new GoogleFactory());
+//        Shop appleShop = new Shop(new AppleFactory());
+//
+//        googleShop.showProducts();
+//        appleShop.showProducts();
 
-        googleShop.showProducts();
-        appleShop.showProducts();
+//        ________________Fasada______________________
 
-
+        Computer computer = new Computer("Raptor X");
+        computer.setup(
+                new Cpu("Intel Pentium II MMX"),
+                new Gpu("ATI Radeon"),
+                new Input("Keyboard and Mouse"),
+                new Ram("2MB SDRAM Kingston"),
+                new HardDrive("Segate Barracuda 250MB"),
+                new OperatingSystem("Windows 98 SE")
+        );
+        computer.start();
 
     }
 }
