@@ -6,6 +6,7 @@ import designpatterns.abstractfactory.WindowsGuiFactory;
 import designpatterns.abstractfactory.excercise.AppleFactory;
 import designpatterns.abstractfactory.excercise.GoogleFactory;
 import designpatterns.abstractfactory.excercise.Shop;
+import designpatterns.command.*;
 import designpatterns.facade.*;
 import designpatterns.proxy.Developer;
 import designpatterns.proxy.Employee;
@@ -200,16 +201,36 @@ public class Main {
 
 //        ________________Fasada______________________
 
-        Computer computer = new Computer("Raptor X");
-        computer.setup(
-                new Cpu("Intel Pentium II MMX"),
-                new Gpu("ATI Radeon"),
-                new Input("Keyboard and Mouse"),
-                new Ram("2MB SDRAM Kingston"),
-                new HardDrive("Segate Barracuda 250MB"),
-                new OperatingSystem("Windows 98 SE")
-        );
-        computer.start();
+//        Computer computer = new Computer("Raptor X");
+//        computer.setup(
+//                new Cpu("Intel Pentium II MMX"),
+//                new Gpu("ATI Radeon"),
+//                new Input("Keyboard and Mouse"),
+//                new Ram("2MB SDRAM Kingston"),
+//                new HardDrive("Segate Barracuda 250MB"),
+//                new OperatingSystem("Windows 98 SE"));
+//        computer.start();
+
+
+//        _________________Polecenie_____________________
+
+        Calculation calculation = new Calculation(10.0,2.0);
+        AdditionCommand additionCommand = new AdditionCommand(calculation);
+        SubstractCommand substractCommand = new SubstractCommand(calculation);
+        MultiplyCommand multiplyCommand = new MultiplyCommand(calculation);
+        DivideCommand divideCommand = new DivideCommand(calculation);
+        ModuloCommand moduloCommand = new ModuloCommand(calculation);
+
+        System.out.println(additionCommand.execute());
+        System.out.println(substractCommand.execute());
+        System.out.println(multiplyCommand.execute());
+        System.out.println(divideCommand.execute());
+        System.out.println(moduloCommand.execute());
+        System.out.println();
+        System.out.println(calculation.getLastResult());
+        System.out.println();
+        System.out.println(calculation.reverseResult(1));
+
 
     }
 }
