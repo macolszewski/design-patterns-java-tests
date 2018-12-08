@@ -8,6 +8,9 @@ import designpatterns.abstractfactory.excercise.GoogleFactory;
 import designpatterns.abstractfactory.excercise.Shop;
 import designpatterns.command.*;
 import designpatterns.facade.*;
+import designpatterns.mvc.BookController;
+import designpatterns.mvc.BookRepository;
+import designpatterns.mvc.BookView;
 import designpatterns.proxy.Developer;
 import designpatterns.proxy.Employee;
 import designpatterns.proxy.Manager;
@@ -214,23 +217,30 @@ public class Main {
 
 //        _________________Polecenie_____________________
 
-        Calculation calculation = new Calculation(10.0,2.0);
-        AdditionCommand additionCommand = new AdditionCommand(calculation);
-        SubstractCommand substractCommand = new SubstractCommand(calculation);
-        MultiplyCommand multiplyCommand = new MultiplyCommand(calculation);
-        DivideCommand divideCommand = new DivideCommand(calculation);
-        ModuloCommand moduloCommand = new ModuloCommand(calculation);
+//        Calculation calculation = new Calculation(10.0,2.0);
+//        AdditionCommand additionCommand = new AdditionCommand(calculation);
+//        SubstractCommand substractCommand = new SubstractCommand(calculation);
+//        MultiplyCommand multiplyCommand = new MultiplyCommand(calculation);
+//        DivideCommand divideCommand = new DivideCommand(calculation);
+//        ModuloCommand moduloCommand = new ModuloCommand(calculation);
+//
+//        System.out.println(additionCommand.execute());
+//        System.out.println(substractCommand.execute());
+//        System.out.println(multiplyCommand.execute());
+//        System.out.println(divideCommand.execute());
+//        System.out.println(moduloCommand.execute());
+//        System.out.println();
+//        System.out.println(calculation.getLastResult());
+//        System.out.println();
+//        System.out.println(calculation.reverseResult(1));
 
-        System.out.println(additionCommand.execute());
-        System.out.println(substractCommand.execute());
-        System.out.println(multiplyCommand.execute());
-        System.out.println(divideCommand.execute());
-        System.out.println(moduloCommand.execute());
-        System.out.println();
-        System.out.println(calculation.getLastResult());
-        System.out.println();
-        System.out.println(calculation.reverseResult(1));
+//        MVC
 
+        BookView bookView = new BookView();
+        BookRepository bookRepository = new BookRepository();
+        BookController bookController = new BookController(bookRepository, bookView);
+        bookController.addBook();
+        bookController.showBooks();
 
     }
 }
